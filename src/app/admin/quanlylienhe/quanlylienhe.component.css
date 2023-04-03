@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  li{
+    list-style: none;
+  }
+  .products{
+    height: 100%;
+    padding: 15px;
+  }
+  .products ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .text-col{
+    padding: 8px;
+  }
+  .container {
+      padding-top: 50px;
+      padding-bottom: 10px;
+      color: #405065;
+    }
+    
+    .search-list-trasua {
+      max-width: 500px;
+      padding-bottom: 50px;
+      margin:auto;
+    }
+    
+    .form-control {
+      border-radius: 100px;
+      display: inline-block;
+      font-size: 20px;
+      padding-left: 10px;
+      height: 40px;
+      width: 100%;
+      margin-right: 237px;
+      margin-left: 5px;
+    }
+    .form-control::placeholder  {
+      font-family: FontAwesome;
+    }
+   .list-products {
+    height: 100%;
+  
+    }
+    .list-products h1{
+      padding-bottom: 25px;
+    }
+    .list-products:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    background: #00000026;
+  }
+  .list-products-row{
+    height: auto;
+    width: 100%;
+  }
+    /* Banner-optinon */
+    .banner{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .banner-search {
+      background-color: #e6e6e6;
+      height: 2.9rem;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      width: 68.7%;
+    }
+  /* .banner-search-trasua{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } */
+  
+  
+  /* icon exit */
+  .option-xoa{
+    padding: 8px 8px;
+    border: none;
+    background-color: #ff2727;
+    font-weight: 600;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .option-xoa:hover{
+  
+    background-color: #ff5e5e;
+  }
+  .option-sua{
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0084ff;
+    font-weight: 600;
+    padding: 8px 8px;
+    color: #fff;
+  }
+  .option-sua:hover{
+  
+    background-color: #64b4ff;
+  }
+   /* input sua tong list danh sach san pham */
+   .list-control{
+    border: none;
+    background-color:rgba(0,0,0,0.0);
+    padding: 0;
+   }
+  
+  /* button */
+  .button_themsp{
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 5.5rem;
+    height: 2.5rem;;
+    background-color: #1890ff;
+    color: #fff;
+  }
+  
+  .button_themsp:hover {
+    color: #1890ff;
+    background-color: #ffffff;
+    transition: color .2s;
+  }
+  
+  .button_tim{
+    border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 5.5rem;
+      height: 2.5rem;
+      background-color: #ffffff;
+      margin-left: 10px;
+  }
+  .button_tim:hover{
+      color: #ffffff;
+      background-color: #1890ff;
+      cursor: pointer;
+      transition: color .2s;
+  }
+  /* .button_themsp::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    background: #00000026;
+  } */
+  .search-box {
+    padding: 8px;
+  }
+  
+  .search-box input {
+    width: 188px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .search-box button {
+    width: 90px;
+  }
+  
+  .search-button {
+    margin-right: 8px;
+  }

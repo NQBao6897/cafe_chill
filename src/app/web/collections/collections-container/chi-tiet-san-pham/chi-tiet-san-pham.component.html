@@ -1,0 +1,101 @@
+<app-navbar [gioHang]=gioHang></app-navbar>
+<section>
+    <div *ngFor=" let data of detail" class="container" >
+        <div class="top col-12">
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>
+                  <a routerLink="/collections/" class="breadcrumb-text">Menu</a> 
+                </nz-breadcrumb-item>
+                <nz-breadcrumb-item>
+                  <a routerLink="/collections/{{data.idloaisanpham.id}}" class="breadcrumb-text">{{data.idloaisanpham.tenloaisanpham}}</a>
+                </nz-breadcrumb-item>
+                <nz-breadcrumb-item>{{data.sanpham}}</nz-breadcrumb-item>
+              </nz-breadcrumb>
+        </div>
+        <div class="row" *ngFor=" let data of detail">
+            <div class="col-lg-6">
+                <div class="item-img">
+                    <img src="{{data.photo}}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="item-text">
+                    <div class="info-content">
+                        <div class="info-content-text">
+                            <p>{{data.sanpham}}</p>
+                        </div>
+                        <div class="info_product_title">
+                            <div class="info_product-sale">            
+                                <del style="color: #888;"> {{data.gia | number}} VND</del>
+                                <div class="sale-icon">
+                                    <p>
+                        
+                                        {{-(data.giamgia)/100 | percent}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="info_product_price">
+                                <p> {{(data.gia -((data.gia*data.giamgia)/100)) | number}} VND</p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <h5 style="font-size: 22px;">Cam kết</h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Đặt online giao tận nhà ĐÚNG GIỜ (nếu trễ tặng PMH 50.000₫)</li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Không chất bảo quản, không chất phẩm màu
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    Sản phẩm đúng như hình và mô tả
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>
+                                    THÂN THIỆN, VUI VẺ
+                                </li>
+                            </ul>
+                        </div>
+                        
+
+                    </div>
+                    <div class="item-button">
+                        <button (click)="themCart(data)">
+                            <i  style="margin-right: 5px;" class="fa fa-cart-plus"></i>
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                    <div class="related_product_title">
+                        <div class="related_product_title-top">
+                            <h4>Mô tả sản phẩm</h4>
+                        </div>
+                        <div class="related_product_title-content">
+                            {{data.moTa}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="product-info">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <div class="product-conten">
+                       
+                        
+                        <hr>
+                        <div class="product-related">
+                            <h4>Sản phẩm liên quan</h4>
+                        </div>
+                    </div>
+                  
+                </div>
+                
+            </div>
+   
+        </div> -->
+    </div>
+</section>
+<app-footer></app-footer>

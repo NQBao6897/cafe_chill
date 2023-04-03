@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@ng-select/ng-select/themes/default.theme.css';
+@import 'ngx-toastr/toastr';
+.ck-content{
+    max-height: 12rem !important;
+}
+/*swiper*/
+.swiper-button-prev ,.swiper-button-next{
+    color: #ffa500;
+}
+
+.swiper-pagination-bullet{
+    background-color: #ffa500;
+}
+.ant-input-group-addon:first-child {
+    border-right: 0;
+    font-size: 16px;
+    width: 30%;
+    text-align: inherit;
+    font-weight: bold;
+}
+.ant-input {
+    padding: 8px 11px !important;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    height: 46.28px !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+    height: 100% !important;
+}
+    nz-select {
+    
+    z-index: 1;
+  }
+  .modal-backdrop.show {
+    z-index: 100 !important;
+  }
+  .modal-open .modal {
+    z-index: 100;
+  }
+  .ant-select-item-option {
+    font-size: 18px !important;
+  }
+  .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    padding-top: 7px !important;
+  }
+  .ant-select-single .ant-select-selector .ant-select-selection-item{
+    padding-top: 7px !important;
+    font-size: 16px;
+  }
+  .ant-input-group-addon:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  .themsanpham-input-text {
+    border-radius: 0 8px 8px 0 !important;
+  }
+  .ant-notification-notice{
+    border-radius: 10px !important;
+  }
+  .modal-content{
+    border-radius: 10px !important;
+    background-color: #2696fe !important;
+  }
+  .cdk-virtual-scrollable {
+    max-height: 100px !important;
+  }
+  .ant-input-group .ant-input-affix-wrapper:not(:first-child){
+ 
+    border-radius: 0 8px 8px 0  ;
+}
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: none ;
+  box-shadow: none;
+  border-right-width: none;
+ 
+}
+.ant-select-dropdown{
+  top: 100%;
+  left: 0;
+  position: relative;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: block;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-search{
+  left: 0;
+}
+
+/* cart */
+.ant-scroll-number {
+  margin-right: 20px;
+}
+/* sale */
+.ant-input-number-input{
+  height: 40px ;
+  
+}
+nz-input-number-group{
+  display: flex;
+  align-items: center;
+}
+/*  */
+.mat-expansion-panel-body {
+  padding: 0 16px !important;
+}
+/* Menu mobie */
+.ant-drawer-header{
+  padding: 16px 1px ;
+}
+.ant-drawer-header-title{
+  justify-content: flex-end;
+}
+/* Responsive */
+/* @media only screen and (min-width: 1200px){
+  .cdk-overlay-pane{display: none;}
+
+} */
+@media only screen and (max-width: 496px){
+  .cdk-overlay-container{
+    z-index: 99 ;
+  }
+}
+.news-content-text p img {
+    width: 100%;
+}
+/* ckeditor  */
+.cke_chrome {
+  border-radius: 0 0 5px 5px !important;
+  padding: 0 !important;
+}
+.cke_inner{
+  border-radius: 0 !important;
+}
+ngx-dropzone-image-preview img{
+  width: 100% !important;
+  opacity: 1 !important;
+  height: 100% !important;
+  justify-content: center;
+}

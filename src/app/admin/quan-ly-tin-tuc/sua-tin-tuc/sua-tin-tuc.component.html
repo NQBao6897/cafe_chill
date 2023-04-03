@@ -1,0 +1,94 @@
+<section id="#Menu1" class="themsanpham">
+    <div class="themsanpham-background">
+            <div class="themsanpham-background-conten">
+                <h1>Sửa bài viết</h1>
+            </div>
+    <form  nz-form  #frmTT="ngForm" [formGroup]="form" (ngSubmit)="submitForm()" (ngSubmit)="suatt(frmTT.value)" nzLayout="vertical"   class="form"  >
+     <div class=" themsanpham-background-space">
+        <div class="col-4 themsanpham-background-img">
+            <!-- <nz-upload
+            class=" avatar-uploader"
+            nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            formControlName="HinhNoiDung"
+            nzListType="picture-card"
+            [nzShowUploadList]="false"  
+            [nzBeforeUpload]="beforeUpload"
+            (nzChange)="handleChange($event)"
+          >
+            <ng-container *ngIf="!tt.HinhNoiDung">
+              <span class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></span>
+              <div class="ant-upload-text">Hình ảnh</div>
+            </ng-container>
+            <img [(ngModel)]="tt.HinhNoiDung"  *ngIf="tt.HinhNoiDung" [src]="tt.HinhNoiDung" style="width: 100% ;height: 100%;" />
+          </nz-upload> -->
+          <div class="title-top-img"> Hình ảnh</div>
+          <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Hinh ảnh sản phẩm</ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              ngProjectAs="ngx-dropzone-preview"
+              *ngFor="let f of files"
+              [file]="f"
+              [removable]="true" 
+              (removed)="onRemove(f)"
+            >
+              <ngx-dropzone-label
+         
+                > ({{ f.type }})</ngx-dropzone-label
+              >
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+        <div class="col-8"> 
+
+            <div class="  themsanpham-background-colum">
+
+              <input type="text" [(ngModel)]="tt.idtt" formControlName="idtt" hidden>
+               <nz-form-item>
+                 <nz-form-control
+                 [nzSpan]="12" 
+                 nzErrorTip="Chưa nhập tên sản phẩm!"
+                 nzHasFeedback
+                 >
+                   <nz-input-group
+                     class="themsanpham-input" 
+                     nzAddOnBefore="Tên sản phẩm"               
+                     >
+                     
+                   <input         
+                   nz-tooltip 
+
+                   formControlName="TieuDe"
+                   
+                   type="text" 
+                   class="themsanpham-input-text "
+                   nz-input 
+                   placeholder="Tên sản phẩm"
+                   [(ngModel)]="tt.TieuDe"
+                    required  
+                   >
+                   </nz-input-group>
+                 </nz-form-control>       
+               </nz-form-item>
+            </div>
+            <div class="bg-popup-master-login-space-ckedior">
+                <div class="title-top">
+                    Nội dung bài viết
+                  </div>
+                <ckeditor [(ngModel)]="tt.NoiDung" formControlName="NoiDung"  [config]="config" debounce="500"></ckeditor>
+               </div>
+        </div>
+           
+        </div>
+       
+        <div class="themsanpham-background-botton">
+            <button type="submit" class=" btn-primary">
+                <div class="themsanpham-background-botton-conten" >
+                    <p><i class="fas fa-plus-circle"></i> Lưu </p>
+                </div>
+            </button>
+        </div>
+      </form>
+   </div>
+</section>
+
+

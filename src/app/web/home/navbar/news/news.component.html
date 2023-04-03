@@ -1,0 +1,81 @@
+<app-navbar [gioHang]=gioHang></app-navbar>
+<div class="content">
+</div>
+<section class="container">
+    <div class=" ">
+        <div class="featured col-12">
+            <swiper [loop]="true" [autoHeight]="true" [allowTouchMove]="false"
+			[autoplay]="{ delay: 1000, disableOnInteraction: false }" [pagination]="{ clickable: true }" [navigation]="true">
+		
+                <ng-template  *ngFor="let tt of listTinTuc" data-swiper-autoplay="6000" swiperSlide>
+                    <div class="content--img">
+                        <img routerLink="/NewsChiTiet/{{tt.idtt}}" src="{{tt.HinhNoiDung}}" alt="" height="800" width="100%">
+                        <div class="content--img-text">
+                            <h5 class="line-clamp clamp1">{{tt.TieuDe}}</h5>
+                            <p class="line-clamp clamp3">{{tt.NoiDung}}</p>
+                        </div>
+                    </div>
+                </ng-template>
+		</swiper>
+        </div>
+    </div>
+</section>
+
+<section class="container" >
+    <div class="content-right-mobie row col-12">
+        <h2> Tin tức nổi bật</h2>         
+    <div *ngFor="let tt of listTinTuc | paginate: { itemsPerPage: 4, currentPage: p }"  class="content-right-itme col-12">
+       <div class="content-right-img">
+           <img src="{{tt.HinhNoiDung}}" alt="">
+       </div>
+        <div class="content-right-text">
+            <h4 class=" line-clamp clamp3">{{tt.TieuDe}}</h4>
+            <div class="meta">
+                <time datetime="yyyy-mm-dd">{{tt.created_at | date: "dd-MM-yyyy"}}</time>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class=" news">
+        <div class="row col-12 - col-md-8 news-content">  
+            <div class="col-12">
+                <h2 >MỚI CẬP NHẬT</h2> 
+            </div>              
+            <div *ngFor="let tt of listTinTuc | paginate: { itemsPerPage: 6, currentPage: p }" class="blog_item col-12 col-md-6">
+                <div class="news-content-left">
+                    <a class="news-content-left-img">
+                        <img routerLink="/NewsChiTiet/{{tt.idtt}}" src="{{tt.HinhNoiDung}}" alt="">
+                    </a>
+                    <div class="meta">
+                        <time datetime="yyyy-mm-dd">{{tt.created_at | date: "dd-MM-yyyy"}}</time>
+                    </div>
+                    <div class="news-content-text">
+                        <h5 routerLink="/NewsChiTiet/{{tt.idtt}}" class=" line-clamp clamp1">{{tt.TieuDe}}</h5>
+                        <div style="font-weight: 300;" [innerHTML]="tt.NoiDung" class=" line-clamp clamp3"></div>
+                    </div>
+                    <button routerLink="/NewsChiTiet/{{tt.idtt}}" class="hover-1">
+                            Xem thêm
+                    </button>
+                </div>
+            </div>
+            <div class="pages">
+                <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+        <div class="content-right row col-4">
+                <h2> Tin tức nổi bật</h2>         
+            <div *ngFor="let tt of listTinTuc | paginate: { itemsPerPage: 4, currentPage: p }"  class="content-right-itme col-12">
+               <div class="content-right-img">
+                   <img src="{{tt.HinhNoiDung}}" alt="">
+               </div>
+                <div class="content-right-text">
+                    <h4 class=" line-clamp clamp3">{{tt.TieuDe}}</h4>
+                    <div class="meta">
+                        <time datetime="yyyy-mm-dd">{{tt.created_at | date: "dd-MM-yyyy"}}</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

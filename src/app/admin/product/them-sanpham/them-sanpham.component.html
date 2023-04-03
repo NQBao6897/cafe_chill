@@ -1,0 +1,171 @@
+<section id="#Menu1" class="themsanpham">
+  <div class="themsanpham-background">
+    <div class="form-exit">
+      <button (click)="close()"> <i class="fa fa-close" style="font-size:24px"></i></button>
+    </div>
+    <div class="themsanpham-background-conten">
+      <h1>Thêm sản phẩm</h1>
+    </div>
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+      nzLayout="vertical"
+      class="form"
+      (ngSubmit)="spthem(form.value)"
+    >
+      <div class="themsanpham-background-space">
+        <div class="col-8 themsanpham-background-colum">
+          <!-- Tên sản phẩm -->
+          <nz-form-item>
+            <nz-form-control
+              [nzSpan]="12"
+              nzErrorTip="Chưa nhập tên sản phẩm!"
+              nzHasFeedback
+            >
+              <nz-input-group
+                class="themsanpham-input"
+                nzAddOnBefore="Tên sản phẩm"
+              >
+                <input
+                  nz-tooltip
+                  formControlName="sanpham"
+                  type="text"
+                  class="themsanpham-input-text"
+                  nz-input
+                  placeholder="Tên sản phẩm"
+                  ngModel
+                  required
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <!-- Giá -->
+          <nz-form-item>
+            <nz-form-control
+              [nzSpan]="12"
+              nzErrorTip="Chưa nhập giá bán sản phẩm!"
+              nzHasFeedback
+            >
+              <nz-input-group class="themsanpham-input" nzAddOnBefore="Đơn giá">
+                <input
+                  currencyMask
+                  [options]="{
+                    align: 'left',
+                    prefix: '',
+                    thousands: '.',
+                    precision: 0,
+                    decimal: ',',
+                    suffix: ' VND'
+                  }"
+                  class="themsanpham-input-text"
+                  ngModel
+                  placeholder="Đơn giá"
+                  formControlName="gia"
+                  nz-input
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <!-- Danh mục sản phẩm -->
+          <nz-form-item>
+            <nz-form-control
+              [nzSpan]="12"
+              nzErrorTip="Chưa nhập danh mục sản phẩm!"
+              nzHasFeedback
+            >
+              <nz-input-group
+                class="themsanpham-input"
+                nzAddOnBefore="Danh mục"
+              >
+                <!-- <input name="idloaisanpham"   class="themsanpham-input-text"nz-input placeholder="Danh mục sản phẩm" ngModel  /> -->
+                <nz-form-control>
+                  <nz-select
+                    nzShowSearch
+                    autocomplete="off"
+                    [(ngModel)]="selectedValue"
+                    nzPlaceHolder="Danh mục sản phẩm"
+                    nzAllowClear
+                    formControlName="idloaisanpham"
+                  >
+                    <nz-option
+                      style="width: 100%"
+                      *ngFor="let lsp of danhmuc"
+                      [nzValue]="lsp.id"
+                      [nzLabel]="lsp.tenloaisanpham"
+                    ></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-4 themsanpham-background-img">
+          <div class="title-top-img"> Hình ảnh</div>
+          <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Hinh ảnh sản phẩm</ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              ngProjectAs="ngx-dropzone-preview"
+              *ngFor="let f of files"
+              [file]="f"
+              [removable]="true" 
+              (removed)="onRemove(f)"
+            >
+              <ngx-dropzone-label
+                > ({{ f.type }})</ngx-dropzone-label
+              >
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+          <!-- <input type="file" (change)="onSelectFile($event)" /> -->
+          <!-- <nz-upload
+                        ngModel
+                        nzAction='https://api.cloudinary.com/v1_1/dctltae7e/image/upload'
+                        class=" avatar-uploader"
+                        formControlName="photo"
+                        nzListType="picture-card"
+                        [nzShowUploadList]="false"  
+                        [nzBeforeUpload]="beforeUpload"
+                        (nzChange)="handleChange($event)" 
+                      >
+                        <ng-container *ngIf="!avatarUrl">
+                          <span class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></span>
+                          <div class="ant-upload-text">Hình ảnh</div>
+                        </ng-container>
+                        <img  *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+                      </nz-upload> -->
+        </div>
+      </div>
+      <div class="form-text">
+        <div class="col-12">
+          <div class="related_product_title">
+            <div class="form-text-top">
+              <p>Mô tả sản phẩm</p>
+            </div>
+            <div class="">
+              <nz-form-item>
+                <nz-form-control>
+                  <nz-textarea-count [nzMaxCharacterCount]="500">
+                    <textarea
+                      ngModel
+                      name="moTa"
+                      rows="4"
+                      formControlName="moTa"
+                      nz-input
+                    ></textarea>
+                  </nz-textarea-count>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="themsanpham-background-botton">
+        <button  type="submit" class="btn-primary">
+          <div class="themsanpham-background-botton-conten">
+            <p><i class="fas fa-plus-circle"></i> Lưu</p>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

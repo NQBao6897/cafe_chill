@@ -1,0 +1,51 @@
+<section class="admin">
+    <div class=" background">
+        <div class="  wrapper">
+            <nav>
+                <div class="wrapper-img">
+                    <img style=" cursor: pointer;" routerLink="/Web-home" height="190" width="220" src="./img/Logochillcafe.png" alt="">
+                </div>
+                <hr>
+                <ul>
+                    <li><a class="wrapper-text active"  routerLink="./Storemanager"> <i class="fa fa-home"></i>Dasboard</a> </li>
+                    <li><a class="wrapper-text"  routerLink="./admin-product"> <i class="fas fa-dice-d6"></i>Quản lý sản phẩm</a> </li>
+                    <li><a class="wrapper-text"  routerLink="./quanlylienhe"> <i class="fas fa-briefcase"></i>Hòm thư khách hàng</a> </li>
+                    <li><a class="wrapper-text"  routerLink="./quanly-news"> <i class="fas fa-house-user"></i>Quản lý tin tức</a> </li>
+                </ul>
+            </nav>
+        </div>
+        <div class=" content">
+            <div class="container-fluid">
+                <div class="fluid-left">
+                    <div routerLink="/Web-home" class="background-icon">
+                        <i class="fa fa-home"></i>
+                    </div>
+                </div>
+                <div class="fluid-right">
+                    <div  class="toolbar-tk show-text-tk" >
+                        <div *ngFor="let tk of taikhoan" class="toolbar-tk-text" > 
+                            <nz-avatar nzIcon="user" nzSrc="{{tk.avatar}}"></nz-avatar>
+                            <p>{{tk.lname}}</p>
+                            <i class="fas fa-cog fa-spin"></i>
+                        </div>
+                                <ul class="toolbar-tk-row">
+                                    <!-- <li>     
+                                        <div class="nav-manager  form-maneger" > 
+                                        <a>Thông tin tài khoản</a>
+                                        </div>
+                                    </li> -->
+                                    <li>
+                                        <div class="nav-manager  form-maneger " (click)="LogOut()" > 
+                                                <a href="">Đăng xuất</a>
+                                        </div>
+                                    </li>
+                                </ul>                  
+                    </div>
+                </div>
+            </div>
+            <div class=" content-list">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,339 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li{
+  list-style: none;
+}
+.products{
+  height: auto;
+  padding: 15px ;
+}
+.products ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: auto;
+  min-height: 1870px;
+}
+
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  
+  .search-list-trasua {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+    border-radius: 100px;
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 10px;
+    height: 40px;
+    width: 100%;
+    margin-right: 237px;
+    margin-left: 5px;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+ .list-products {
+  height: 100%;
+  padding: 20px 0;
+
+  }
+  .list-products h1{
+    padding-bottom: 25px;
+  }
+  .list-products:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  background: #00000026;
+}
+.list-products-row{
+  height: auto;
+  width: 98.5rem;
+  margin: 0 15px;
+}
+
+  /* Banner-optinon */
+  .banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .banner-search {
+    background-color: #e6e6e6;
+    height: 2.9rem;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    width: 68.7%;
+  }
+/* .banner-search-trasua{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+
+/* icon exit */
+.option-xoa{
+  padding: 8px 8px;
+  border: none;
+  background-color: #ff2727;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #fff;
+}
+.option-xoa:hover{
+
+  background-color: #ff5e5e;
+}
+.option-sua{
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0084ff;
+  font-weight: 600;
+  padding: 8px 8px;
+  color: #fff;
+}
+.option-sua:hover{
+
+  background-color: #64b4ff;
+}
+ /* input sua tong list danh sach san pham */
+ .list-control{
+  border: none;
+  background-color:rgba(0,0,0,0.0);
+  padding: 0;
+ }
+
+/* button */
+.button_themsp{
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 5.5rem;
+  height: 2.5rem;;
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.button_themsp:hover {
+  color: #1890ff;
+  background-color: #ffffff;
+  transition: color .2s;
+}
+
+.button_tim{
+  border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 5.5rem;
+    height: 2.5rem;
+    background-color: #ffffff;
+    margin-left: 10px;
+}
+.button_tim:hover{
+    color: #ffffff;
+    background-color: #1890ff;
+    cursor: pointer;
+    transition: color .2s;
+}
+/* .button_themsp::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  background: #00000026;
+} */
+.search-box {
+  padding: 8px;
+}
+
+.search-box input {
+  width: 188px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.search-box button {
+  width: 90px;
+}
+
+.search-button {
+  margin-right: 8px;
+}
+.send-request{
+  width: 30%;
+  }
+
+.send-request span {
+  margin-left: 8px;
+  
+}
+.send-request-button{
+  padding: 0 10px 0 10px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+/* Tìm nâng cao */
+.ant-advanced-search-form {
+  padding: 24px;
+  background: #fbfbfb;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 15px;
+}
+
+.search-result-list {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+[nz-form-label] {
+  overflow: visible;
+}
+
+.collapse {
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.search-area {
+  text-align: right;
+}
+.search-area button {
+  margin-left: 8px;
+    height: 40px;
+    width: 110px;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+}
+.search-item{
+  display: flex;
+  align-items: center;
+  background-color: #e6e6e6;
+  margin: 0 5px;
+  height: 100%;
+  border-radius: 8px;
+}
+.search-item p{
+  width: 140px;
+  padding-left: 7px;
+  font-weight: 600;
+}
+.search-item input{
+  height: 46.27px;
+  border-radius: 0 8px 8px 0 ;
+  font-size: 16px;
+}
+
+nz-select{
+  width: 100%;
+  z-index: 1 !important;
+}
+.ant-select-selection-item{
+  font-size: 16px;
+}
+/* Sale */
+.sale-icon{
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  width: 6.8rem;
+  height: 2.5rem;
+  margin-left: 0.5px;
+  border-radius: 0 4px 4px 0;
+}
+.sale-icon i{
+  padding-right: 5px;
+}
+// .sale {
+//   position: relative;
+//   display: inline-block;
+//   background: orange;
+//   color: white;
+//   height: 2.5rem;
+//   width: 2.5rem;
+//   text-align: center;
+//   vertical-align: middle;
+//   line-height: 2.5rem;
+//   margin: 45vh 45vw;
+//   transform: rotate(-20deg);
+//   animation: beat 1s ease infinite alternate;
+//   &:before,
+//   &:after {
+//     content:"";
+//     position: absolute;
+//     background: inherit;
+//     height: inherit;
+//     width: inherit;
+//     top: 0;
+//     left: 0;
+//     z-index: -1;
+//     transform: rotate(30deg);
+//   }
+//   &:after {
+//     transform: rotate(60deg);
+//   }
+// }
+
+// @keyframes beat {
+//   from {	transform: rotate(-20deg) scale(1); }
+//   to {	transform: rotate(-20deg) scale(1.1); }
+// }
+
+.ant-space{
+align-items: center;
+}
+// 
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+  .line-clamp.clamp2 {
+      -webkit-line-clamp: 2;
+  }
+
+  .line-clamp.clamp3 {
+      -webkit-line-clamp: 3;
+  }
+
+  .line-clamp.clamp4 {
+      -webkit-line-clamp: 4;
+  }
+
+  .line-clamp.clamp5 {
+      -webkit-line-clamp: 5;
+  }

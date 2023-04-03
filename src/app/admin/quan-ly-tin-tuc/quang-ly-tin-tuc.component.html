@@ -1,0 +1,119 @@
+<section class="products">
+    <body class="list-tintuc">
+      <div class="list-col">
+        <div class="list-products">
+          <div class="row list-products-row">
+            <div class="col-sm-12" >
+               <!-- Tìm nâng cao -->
+              <div class="banner">
+                
+                <!-- <div class="banner-search">
+                  <div class="banner-search-trasua">
+                    <input class="form-control" type="text" name="search" autocomplete="off" [(ngModel)]="searchText" placeholder="&#61442;  Tìm sản phẩm... " >
+                </div>
+                <button   class="button_tim">Tìm</button>
+              </div>  -->
+              <div class="send-request">
+               
+                  <button
+                    class="send-request-button"
+                    nz-button
+                    nzType="primary"
+                    [disabled]="setOfCheckedId.size === 0"
+                    [nzLoading]="loading"
+                    nz-popconfirm 
+                    nzOkText="Có"
+                    (nzOnConfirm)="xoaNhieu()"
+                    nzCancelText="Không"
+                    nzPopconfirmTitle="Bạn có muốn xóa không?" 
+                    [nzIcon]="iconTpl"
+                  >Xóa đã chọn</button>
+                  <ng-template #iconTpl>
+                    <span nz-icon nzType="question-circle-o" style="color: red;"></span>
+                  </ng-template>
+                <span>Đã chọn {{ setOfCheckedId.size }} bài viết</span>   
+                
+              </div>
+              <button class="button_themsp" (click)="themTinTuc()"> <i class="fa fa-plus-circle"> </i> Thêm</button>
+            </div>
+            <!--  -->
+              <div class="form--list">  
+                  <nz-table 
+                  #rowSelectionTable 
+                  [nzData]="listtintuc" 
+                   nzTableLayout="fixed"
+                   nzShowPagination
+                   nzShowSizeChanger
+                   (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+                    >
+                    <thead>
+                      <tr>
+                        <th 
+                        class="col-1"
+                        [nzChecked]="checked" 
+                        [nzIndeterminate]="indeterminate"
+                         (nzCheckedChange)="onAllChecked($event)"
+                         ></th>
+                        <th class="col-1">Stt</th>
+                        <th class="col-3" nzCustomFilter>
+                          Tiêu đề 
+                          <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchTT.length > 0" [nzDropdownMenu]="menu">
+                            <span nz-icon nzType="search"></span>
+                          </nz-filter-trigger>
+                        </th>
+                        <th class="col-2">Hình</th>
+                        <th class="col-1">Ngày đăng</th>
+
+                        <th class="col-4">Nội dung</th>
+                        <th class="col-2">Option</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr  *ngFor=" let data of rowSelectionTable.data ; let i = index"  >
+                          <td
+                          [nzChecked]="setOfCheckedId.has(data.idtt)"
+                          [nzDisabled]="data.disabled"
+                          (nzCheckedChange)="onItemChecked(data.idtt, $event)"
+                          ></td>
+                          <td>{{i + 1}}</td>
+                          <td>{{data.TieuDe}}</td>
+                          <td><img style="height: 120px; width: 120px;" src="{{data.HinhNoiDung}}"></td>
+                          <td> {{data.created_at  | date:"dd/MM/YYYY" }}  </td>
+                          <td >
+                            <div style="font-weight: 300;" [innerHTML]="data.NoiDung" class=" line-clamp clamp4">
+                            </div>
+                          </td>
+                          <td>
+                            <div class="icon-option"> 
+                              <button (click)="xoaTT(data.idtt)" class="option-xoa">
+                                <i class="fa fa-trash" href="#" ></i>
+                                Xóa
+                              </button>
+                              <button (click)="suatt(data)" class="option-sua">
+                                <i class="fa fa-edit " href="#"  ></i>
+                                Sửa
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                  
+                  </nz-table>
+                  <nz-dropdown-menu  #menu="nzDropdownMenu">
+                    <div class="ant-table-filter-dropdown">
+                      <div class="search-box">
+                        <input type="text" nz-input [(ngModel)]="searchTT" placeholder="Tìm sản phẩm..."  />
+                        <button nz-button nzSize="small" nzType="primary"  (click)="search()" class="search-button">Tìm</button>
+                        <button nz-button nzSize="small" (click)="reset()">Làm mới</button>
+                      </div>
+                    </div>
+                  </nz-dropdown-menu>
+                  <!--  -->
+                <!-- </nz-table> -->
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </section>

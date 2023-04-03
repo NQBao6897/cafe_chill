@@ -1,0 +1,72 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "anthor": "typescript"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "singup": [
+    {
+      "fname": "admin",
+      "lname": "Adhikari",
+      "email": "manojadhikari@gmail.com",
+      "phone": "234324234",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "fname": "shivam",
+      "lname": "adhikari",
+      "email": "shivamadhikari@gmail.com",
+      "phone": "32432",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
+  "listtrasua": [
+    {
+      "id": 1,
+      "Photo": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20210709112008235743/detail/menueditor_item_271eef3dd5064470830ee4034de610ce_1658936329523529815.webp",
+      "sanpham": "Trà sữa Hong Kong",
+      "gia": "25,000 VND"
+    },
+    {
+      "id": 2,
+      "Photo": "https://store.longphuong.vn/wp-content/uploads/2022/09/tra-sua-tran-chau-duong-den.jpg",
+      "sanpham": "Trà sữa Chân châu đường đen",
+      "gia": "30,000 VND"
+    },
+    {
+      "id": 3,
+      "Photo": "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20210709112008235743/detail/menueditor_item_271eef3dd5064470830ee4034de610ce_1658936329523529815.webp",
+      "sanpham": "Trà mật ong",
+      "gia": "21,000 VND"
+    },
+    {
+      "id": 4,
+      "Photo": "data:image/jpeg;base64,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",
+      "sanpham": "trà sữa thái xanh",
+      "gia": "25,000 VND"
+    },
+    {
+      "sanpham": "trà sữa thái đỏ",
+      "gia": "29,000 VND",
+      "photo": "",
+      "id": 5
+    }
+  ]
+}

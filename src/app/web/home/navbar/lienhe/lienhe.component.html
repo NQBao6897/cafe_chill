@@ -1,0 +1,96 @@
+<app-navbar [gioHang]=gioHang></app-navbar>
+<section class="container">
+    <div class="content">
+        <h2>HỘ TRỢ KHÁCH HÀNG</h2>
+    </div>
+    <div class="box row">
+        <div class="box-introduce col-12 col-md-6">
+            <img src="https://cafebiz.cafebizcdn.vn/thumb_w/600/162123310254002176/2022/8/25/avatar1661389683793-16613896842621237100149.jpg" alt="">
+            <div class="box-introduce-item">
+                <div class="box-introduce-item-text">
+                    <h3>Trụ sở chính tại Hồ Chí Minh</h3>
+                    <div class="box-introduce-item-text-option">
+                        <p><span style="font-weight: bold;">Đỉa chỉ: </span>Lầu 4 tòa nhà HUB, số 195/10E Điện Biên Phủ, phường 15, quận Bình Thạnh, Tp. Hồ Chí Minh</p>
+                    </div>
+                    <div class="box-introduce-item-text-option">
+                        <p><span style="font-weight: bold;">Số điện thoại: </span>(028)71078079</p>
+                    </div>
+                    <div class="box-introduce-item-text-option">
+                        <p><span style="font-weight: bold;">Email: </span> hr.hcm@thecoffeehouse.vn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-color  col-12 col-md-6">
+            <form class="box-content "  #frmHT="ngForm" (ngSubmit)="guihomthu(frmHT.value)"  [formGroup]="listlienhe">
+             
+                <div class="form-color">     
+                    <H3>Hòm thư góp ý</H3>
+                    <div class="box-content-item">
+                        <div class="group">    
+                            <input  class="form-control" ngModel name="name" type="text" required formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"    >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Họ và tên</label>
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Chưa nhập họ và tên</div>
+                             </div>
+                        </div>
+                        <div class="group">    
+                            <input  class="form-control" ngModel name="phone" type="text" required formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"    >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Số Điện thoại </label>
+                            <div *ngIf="submitted && f.phone.errors  " class="invalid-feedback">
+                                <div *ngIf="f.phone.errors.required">Chưa nhập Số Điện thoại</div>
+                                <div *ngIf="f.phone.errors.pattern">Đây không phải Số Điện thoại</div>
+                             </div>
+                        </div>
+                        <div class="group">    
+                            <input  class="form-control" ngModel name="email" type="text" required formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"    >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Email</label>
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Chưa nhập Email</div>
+                                <div *ngIf="f.email.errors.email">Đây không phải Email</div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="group">    
+                        <!-- <input  class="form-control" ngModel name="danhmuc" type="text" required formControlName="danhmuc" [ngClass]="{ 'is-invalid': submitted && f.danhmuc.errors }"> -->
+                        <select class="form-control" ngModel name="danhmuc" type="text" required formControlName="danhmuc" [ngClass]="{ 'is-invalid': submitted && f.danhmuc.errors }"  >
+                            <option>Đồ ăn, thức uống</option>
+                            <option>Nhân Viên</option>
+                            <option>Cơ sở vật chất</option>
+                            <option>Hệ thống thanh toán điện tử</option>
+                            <option>khác</option>
+                        </select>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Danh mục </label>
+                        <div *ngIf="submitted && f.danhmuc.errors" class="invalid-feedback">
+                            <div *ngIf="f.danhmuc.errors.required">Chưa nhập danh mục </div>
+                        </div>
+                    </div>
+                    <div class="group">    
+                        <input  class="form-control" ngModel name="note" type="text" required formControlName="note"  [ngClass]="{ 'is-invalid': submitted && f.note.errors }"   >
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Nội dung</label>
+                        <div *ngIf="submitted && f.note.errors" class="invalid-feedback">
+                            <div *ngIf="f.note.errors.required">Chưa nhập Nội dung</div>
+                         </div>
+                    </div>
+                    <div class="box-content-content">
+                        <p>Ý kiến góp ý sẽ được gửi về bộ phân chăm sóc khách hàng, chúng tôi sẽ cố gắn liên hệ cho bạn sớm nhất có thể, trực tiếp qua số điên thoại hoặc hòm thư Email</p>
+                        <div class="box-content-content--button">
+                            <button mat-raised-button color="primary">Gửi liên hệ</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

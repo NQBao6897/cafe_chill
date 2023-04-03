@@ -1,0 +1,85 @@
+<section class="products">
+  <ul class="list">
+    <li class="list-col">
+      <div class="list-products">
+        <div class="row list-products-row" >
+          <div class="col-sm-12" >
+            <div class="banner">
+
+              <!-- <div class="banner-search">
+                <div class="banner-search-trasua">
+                  <input class="form-control" type="text" name="search" autocomplete="off" [(ngModel)]="searchText" placeholder="&#61442;  Tìm sản phẩm... " >
+              </div>
+              <button   class="button_tim">Tìm</button>
+            </div>  -->
+          
+          </div>
+            <div class="form--list">  
+                <nz-table 
+                #nzTable 
+                [nzData]="listhomthu" 
+                 nzTableLayout="fixed"
+                 [nzPageSize]="10"
+                 [nzPageIndex]="1"
+                 nzShowPagination
+                 nzShowSizeChanger
+                  >
+                  <thead>
+                    <tr>
+                      <th class="text-col col-1">Stt</th>
+                     
+                      <th class="text-col col-2" nzCustomFilter>
+                        Họ và tên
+                        <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                          <span nz-icon nzType="search"></span>
+                        </nz-filter-trigger>
+                      </th>
+                      <th class="text-col col-1">Số điện thoại	</th>
+                      <th class="text-col col-1">Email</th>
+                      <th class="text-col col-1">Danh mục</th>
+                      <th class="text-col col-1">Thời gian	</th>
+                      <th class="text-col col-4">Nội dung	</th>
+                      <th class="text-col col-1">Option</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                      <tr  *ngFor=" let ht of nzTable.data;  let i = index"   >
+                        <td class="text-col">{{(i+1)}}</td>
+                        <td class="text-col">{{ht.name}}</td>
+                        <td class="text-col">{{ht.phone}}</td>
+                        <td class="text-col">{{ht.email}}</td>
+                        <td class="text-col">{{ht.danhmuc}}</td>
+                        <td class="text-col">{{ht.created_at | date:"dd/MM/YYYY" }}</td>
+                        <td class="text-col">{{ht.note}}</td>
+                        <td class="text-col">
+                          <div class="icon-option"> 
+                            <button (click)="xoaHT(ht.idht)" class="option-xoa">
+                              <i class="fa fa-trash" href="#" ></i>
+                              Xóa
+                            </button>
+                
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                
+                </nz-table>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                  <div class="ant-table-filter-dropdown">
+                    <div class="search-box">
+                      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+                      <button nz-button nzSize="small" nzType="primary"  class="search-button">Search</button>
+                      <button nz-button nzSize="small" (click)="reset()">Reset</button>
+                    </div>
+                  </div>
+                </nz-dropdown-menu>
+              
+                <!--  -->
+              <!-- </nz-table> -->
+              </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

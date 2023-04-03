@@ -1,0 +1,85 @@
+<section  class="containers">
+    <div class="row">
+        <div class="container-col col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-6">Số lượng sản phẩm</h4>
+                    <div id="chart">
+                        <apx-chart
+                          [series]="chartOptions.series"
+                          [chart]="chartOptions.chart"
+                          [labels]="chartOptions.labels"
+                          [responsive]="chartOptions.responsive"
+                        ></apx-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-col col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-6">Số lượng người truy cập</h4>
+                    <div id="chart4">
+                        <apx-chart
+                          [series]="chartOptions4.series"
+                          [chart]="chartOptions4.chart"
+                          [xaxis]="chartOptions4.xaxis"
+                          [stroke]="chartOptions4.stroke"
+                          [tooltip]="chartOptions4.tooltip"
+                          [dataLabels]="chartOptions4.dataLabels"
+                          [legend]="chartOptions4.legend"
+                          [markers]="chartOptions4.markers"
+                          [grid]="chartOptions4.grid"
+                          [yaxis]="chartOptions4.yaxis"
+                          [title]="chartOptions4.title"
+                        ></apx-chart>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-col col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-6">Báo cáo doanh thu chi nhánh theo quý</h4>
+                    <div id="chart2">
+                        <apx-chart
+                          [series]="chartOptions2.series"
+                          [chart]="chartOptions2.chart"
+                          [dataLabels]="chartOptions2.dataLabels"
+                          [stroke]="chartOptions2.stroke"
+                          [colors]="chartOptions2.colors"
+                          [title]="chartOptions2.title"
+                          [subtitle]="chartOptions2.subtitle"
+                          [plotOptions]="chartOptions2.plotOptions"
+                          [yaxis]="chartOptions2.yaxis"
+                          [xaxis]="chartOptions2.xaxis"
+                          [tooltip]="chartOptions2.tooltip"
+                        ></apx-chart>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-col col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-6">Tổng doanh thu hàng năm</h4>
+                    <div id="chart3">
+                        <apx-chart
+                          [series]="chartOptions3.series"
+                          [chart]="chartOptions3.chart"
+                          [dataLabels]="chartOptions3.dataLabels"
+                          [plotOptions]="chartOptions3.plotOptions"
+                          [responsive]="chartOptions3.responsive"
+                          [xaxis]="chartOptions3.xaxis"
+                          [legend]="chartOptions3.legend"
+                          [fill]="chartOptions3.fill"
+                        ></apx-chart>
+                      </div>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

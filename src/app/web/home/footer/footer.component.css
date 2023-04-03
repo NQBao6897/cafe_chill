@@ -1,0 +1,131 @@
+.background{
+    background-color: #262626;
+    height: auto;
+    opacity: 0.9;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.background-col {
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+    list-style: none;
+   
+}
+
+.background-col a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    
+}
+.footer-container{
+    margin-top: 10px;
+}
+.footer-container-content{
+    display: flex;
+    flex-direction: column;
+}
+.footer-container-content a{ 
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.footer-container-content-bulkhead{
+    border-top: 5px solid ;
+    margin-top: 20px;
+}
+.footer-container-content-icon {
+    margin-top: 20px;
+   
+}
+
+.footer-container-content-icon a{
+    margin: 10px 20px 0 0;
+}
+
+
+.footer-col hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+.footer_itemlists {
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height: 18px;
+    font-family: 'Lato', sans-serif;
+    list-style: none;
+}
+.map{
+    width: auto;
+}
+.facebook{
+    width: auto;
+}
+
+.footer-text h3{
+    margin-bottom: 20px;
+    color: #ffb227;
+}
+/* icon */
+.content-icon{
+    padding-right: 5px;
+}
+/* back */
+#back-to-top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    right: 2rem;
+    font-size: 20px;
+    background: #fff;
+    -webkit-box-shadow: 0px 5px 12px 2px rgb(68 102 242 / 10%);
+    box-shadow: 0px 5px 12px 2px rgb(68 102 242 / 10%);
+    border-radius: 50%;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+	color: #ff8800;
+}
+#back-to-top.show {
+    opacity: 1;
+    text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* scroll */
+:host ::ng-deep .long-div {
+    height: 300px;
+    overflow-y: scroll;
+    background-image: url(//zos.alipayobjects.com/rmsportal/RmjwQiJorKyobvI.jpg);
+  }
+
+  :host ::ng-deep .long-div-inner {
+    height: 1500px;
+  }
+
+  :host ::ng-deep .long-div .ant-back-top {
+    right: 150px;
+  }
+
+  :host ::ng-deep .long-div .ant-back-top-rtl {
+    right: unset;
+    left: 150px;
+  }
+
+  :host ::ng-deep strong {
+    color: rgba(64, 64, 64, 0.6);
+  }

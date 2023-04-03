@@ -1,0 +1,43 @@
+
+<section>
+    <div class="container" *ngFor=" let lsp of listSP">
+            <H3 style="margin-bottom: 24px;">{{lsp.tenloaisanpham}}</H3> 
+                <div class="menu_lists row">
+                    <ng-container name="idGH" *ngFor="let item of lsp.id" >
+                        <div class="col-6 col-md-4"   > 
+                            <div class="menu_item ">
+                                <div class="menu_item_image ">      
+                                     <div class="card ">
+                                           
+                                            <img class="card-img" src="{{item.photo}}" width="200" alt="" >
+                                            <div routerLink="/chi-tiet-san-pham/{{item.id}}"  class="cart-option-routerLink">
+                                            </div>
+                                            <div  class="cart-optionp-item  " >
+                                                <a (click)="likeSP(item)" class="cart-option-icon cart">
+                                                    <i class="fas fa-heart"></i>
+                                                </a>
+                                                <a (click)="themCart(item)" class="cart-option-icon cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </a>
+                                            </div>
+                                      </div>                        
+                                </div>
+                                <div class="title-item">
+                                    <a class="title-item" routerLink="/chi-tiet-san-pham/{{item.id}}">                 
+                                        {{item.sanpham}}         
+                                    </a>
+                                </div>
+                                <div class="menu_item_info">
+                                    <div class="price_product_item">
+                                       
+                                       <del style="color: #888;"> {{item.gia | number}} VND</del> 
+                                        <p>{{(item.gia -((item.gia*item.giamgia)/100)) | number}} VND</p>
+                                    </div>
+                                    <span class="sale">{{-(item.giamgia)/100 | percent}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+    </div>
+</section>

@@ -1,0 +1,59 @@
+<app-navbar [gioHang]=gioHang></app-navbar>
+<div class="content">
+</div>
+<!-- <section class="banner-top">
+    <div *ngFor="let tt of listTinTuc " >
+        <img src="{{tt.HinhNoiDung}}" alt="">
+    </div>
+</section> -->
+
+<section class="container" >
+    <div class="row news">
+   
+        <div class="row col-12 col-md-8 news-content">  
+            <div *ngFor="let tt of listTinTuc " class="blog_item col-12">
+                <nz-breadcrumb>
+                    <nz-breadcrumb-item class="title-1">
+                        Tin Tức
+                    </nz-breadcrumb-item>
+                    <nz-breadcrumb-item class="title-2">Blog</nz-breadcrumb-item>
+                  </nz-breadcrumb>
+                <div class="title col-12">
+                    <h1 >{{tt.TieuDe}}</h1> 
+                    <div class="meta">
+                        <time datetime="yyyy-mm-dd">{{tt.created_at | date: "dd-MM-yyyy"}}</time>
+                    </div>
+                </div>       
+                 
+                <div class="news-content-left">
+                    <!-- <a class="news-content-right-img">
+                        <img src="{{tt.HinhNoiDung}}" alt="">
+                    </a> -->
+                    
+                    <div [innerHTML]="tt.NoiDung" class="news-content-text">
+                 
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="row col-12 col-md-4">
+            <div class=" news-content-right col-12">
+                <h2> Bài đăng gần đây</h2>
+                <div *ngFor="let tt of listTinTucMoi | paginate: { itemsPerPage: 4, currentPage: p }"  class="content-right-itme col-12">
+                    <div class="content-right-img">
+                        <img routerLink="/NewsChiTiet/{{tt.idtt}}"  src="{{tt.HinhNoiDung}}" alt="">
+                    </div>
+                     <div class="content-right-text">
+                         <h4 routerLink="/NewsChiTiet/{{tt.idtt}}"  class=" line-clamp clamp3">{{tt.TieuDe}}</h4>
+                         <div class="meta">
+                             <time datetime="yyyy-mm-dd">{{tt.created_at | date: "dd-MM-yyyy"}}</time>
+                         </div>
+                     </div>
+                 </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

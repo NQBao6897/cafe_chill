@@ -1,0 +1,210 @@
+<app-navbar [gioHang]=gioHang></app-navbar>
+<div class="background">   
+        <section class="section-pagetop bg">
+        <div class="container-text">
+            <h1 class="title-page">Giỏ hàng</h1>
+        </div> 
+        </section>
+        <section class="section-content padding-y">
+        <div class="container">
+        <div class="row">
+            <main class="col-md-9">
+        <div class="card table-shopping-cart">
+        
+        <table class="table table-borderless table-shopping-cart">
+        <thead class="text-muted">
+        <tr class="small text-uppercase">
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col" width="245">Số lượng</th>
+          <th scope="col" width="120">Thành tiền</th>
+          <th scope="col" class="text-right" width="200"> </th>
+        </tr>
+        </thead>
+        <tbody class="cart-body">
+              <!-- ========================= Giỏ hàng ========================= -->     
+              <tr class="cart-body-item"  *ngFor="let sp of listgiohang " (ngSubmit)="suasp(sp.SoLuong)">   
+            <td>
+                <figure class="itemside">
+                    <div routerLink="/chi-tiet-san-pham/{{sp.idSanPham.id}}" class="aside"><img src="{{sp.idSanPham.photo}}" class="img-sm"></div>
+                    <figcaption class="info">
+                        <h4 routerLink="/chi-tiet-san-pham/{{sp.idSanPham.id}}" href="#" class="title text-dark">{{sp.idSanPham.sanpham}}</h4>
+                        <div class="text-option text-muted small">
+                            <div class="text-option-flex">
+                                <div>
+                                    Giá gốc: <del style="color: #888;"> {{sp.idSanPham.gia | number}} VND</del>  
+                                </div>
+                                <div class="sale-icon">
+                                    <p>
+                                        {{-(sp.idSanPham.giamgia)/100 | percent}} 
+                                    </p>
+                                </div>
+                            </div>
+                            <br class="text-muted small">Giá Đã giảm: {{(sp.idSanPham.gia -((sp.idSanPham.gia*sp.idSanPham.giamgia)/100))| number}} VND
+                        </div>
+                    </figcaption>
+                </figure>
+            </td>
+            <td> 
+                <!-- <input class="form-control text-center"
+                 min="1" 
+                 max="100"  
+                 [(ngModel)]="sp.SoLuong" 
+                 (click)="suasp(sp)"
+                 value="{{sp.SoLuong}}" 
+                 type="number">  -->
+                 <div class="button-soluong"> 
+                     <div class="form-check-inline">
+                        <button class="btn btn-primary" (click)="congsp(sp)"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <div class="form-check-inline">
+                        <input type="number" min="1" max="100" pattern="\S+" oninput="validity.valid||(value='');" (keyup)="soLuong(sp)" class="form-control" value="{{sp.SoLuong  }}"  [(ngModel)]="sp.SoLuong ">
+                        </div>
+                        <div class="form-check-inline">
+                        <button class="btn btn-primary" (click)="trusp(sp)"><i class="fa fa-minus"></i></button>
+                        </div>      
+                 </div>
+          </td>
+            <td> 
+                <div class="price-wrap"> 
+                    <var class="price">{{((sp.idSanPham.gia -((sp.idSanPham.gia*sp.idSanPham.giamgia)/100)) * sp.SoLuong) | number  }} VND</var> 
+                    <!-- <small class="text-muted"> $315.20 each </small>  -->
+                </div> <!-- price-wrap .// -->
+            </td>
+            <td class="text-right"> 
+                <a (click)="likeSP(sp)"  data-original-title="Save to Wishlist" title=""  class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
+                <a class="btn btn-light" (click)="xoaGH(sp)"> Xóa</a>
+            </td>
+        </tr>
+        <!--  -->
+        </tbody>
+        </table>
+        <div class="card-body border-top">
+            <!-- <a href="#" class="btn btn-primary float-md-right"> Thanh toán <i class="fa fa-chevron-right"></i> </a> -->
+            <a routerLink="/collections" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Tiếp tục mua hàng </a>
+        </div>  
+        </div> <!-- card.// -->
+        <!-- cart mobie-->
+        <div class=" table-shopping-cart-mobie">
+            <table class="table table-borderless table-shopping-cart-mobie">
+            <!-- <thead class="text-muted">
+            <tr class="small text-uppercase">
+              <th scope="col">Tên sản phẩm</th>
+              <th scope="col" width="120">Số lượng</th>
+              <th scope="col" width="120">Thành tiền</th>
+              <th scope="col" class="text-right" width="200"> </th>
+            </tr>
+            </thead> -->
+         <tbody class="cart-body-mobie">
+                  <!-- ========================= Giỏ hàng ========================= -->     
+                  <div class="cart-body-item-mobie"  *ngFor="let sp of listgiohang " (ngSubmit)="suasp(sp.SoLuong)"  >
+                    <div class="text-right-mobie"> 
+                        <div class="text-right-mobie-item">
+                            <i class="fa fa-coffee"></i>
+                            <p routerLink="/collections/{{sp.idSanPham.idloaisanpham.id}}">{{sp.idSanPham.idloaisanpham.tenloaisanpham}} <i class="fa fa-angle-right"> </i></p>
+                        </div>
+                        <div>
+                            <a (click)="likeSP(sp)"  data-original-title="Save to Wishlist" title=""  class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
+                            <a class="btn btn-light" (click)="xoaGH(sp)"> Xóa</a>
+                        </div>
+                    </div>
+                    <div>
+                    <figure class="itemside">
+                        <div routerLink="/chi-tiet-san-pham/{{sp.idSanPham.id}}" class="aside"><img src="{{sp.idSanPham.photo}}" class="img-sm"></div>
+                        <figcaption class="info">
+                            <h4 routerLink="/chi-tiet-san-pham/{{sp.idSanPham.id}}" href="#" class="title text-dark">{{sp.idSanPham.sanpham}}</h4>
+                        
+                            <div class="text-option text-muted small">
+                                <div class="text-option-flex">
+            
+                                        <del style="color: #888;"> {{sp.idSanPham.gia | number}} VND</del>  
+
+                                        <p class="text-muted small"> {{(sp.idSanPham.gia -((sp.idSanPham.gia*sp.idSanPham.giamgia)/100))| number}} VND </p>
+                         
+                                    
+                                </div>
+                               
+                            </div>
+                            <div class="sale-icon-mobie">
+                                <p>
+                                  Giảm: {{-(sp.idSanPham.giamgia)/100 | percent}} 
+                                </p>
+                            </div>
+                            <!-- <div> 
+                                <input class="form-control text-center"
+                                 min="1" 
+                                 max="100"  
+                                 [(ngModel)]="sp.SoLuong" 
+                                 (click)="suasp(sp)"
+                                 value="{{sp.SoLuong}}" 
+                                 type="number">       
+                          </div> -->
+                          <div class="form-check-inline">
+                            <button class="btn btn-primary" (click)="congsp(sp)"><i class="fa fa-plus"></i></button>
+                            </div>
+                            <div class="form-check-inline">
+                            <input type="number" min="1" max="100" oninput="validity.valid||(value='');" (keyup)="soLuong(sp)" class="form-control" value="{{sp.SoLuong  }}"  [(ngModel)]="sp.SoLuong ">
+                            </div>
+                            <div class="form-check-inline">
+                            <button class="btn btn-primary" (click)="trusp(sp)"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+          
+            </div>
+            <!--  -->
+        </tbody>
+            </table>
+            <div class="card-body border-top">
+                <!-- <a href="#" class="btn btn-primary float-md-right"> Thanh toán <i class="fa fa-chevron-right"></i> </a> -->
+                <a routerLink="/collections" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Tiếp tục mua hàng </a>
+            </div>  
+            </div>
+            <!-- end cart mobie -->
+        <div class="alert alert-success mt-3">
+            <p class="icontext"><i class="icon text-success fa fa-truck"></i> Giao hàng quá 1-2 tuần đơn hàng sẽ được miễn phí</p>
+        </div>
+            </main> <!-- col.// -->
+            <aside class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Mã giảm giá</label>
+                            <form  [formGroup]="voucher"  (ngSubmit)="voucherdata(voucher)" class="input-group">
+                                <input type="text" class="form-control" formControlName="maVoucher" placeholder="Mã giảm giá ">
+                                <span class="input-group-append"> 
+                                    <button  class="btn btn-primary">Nhập</button>
+                                </span>
+                            </form>
+                        </div>
+                    </form>
+                    </div>
+                </div> 
+                <form  class="card" >
+                    <div class="card-body">
+                            <dl class="dlist-align">
+                              <dt>Tổng giá:</dt>
+                              <dd class="text-right">{{tongGia | number }} VND</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                              <dt>Giảm giá:</dt>
+                              <dd class="text-right">{{maGiamGia | number }} VND</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                              <dt>Tổng tiền:</dt>
+                              <dd class="text-right  h5"><strong>{{(tongTien) - maGiamGia  | number }} VNĐ</strong></dd>
+                            </dl>
+                            <hr>
+                            <!-- <p class="text-center mb-3">
+                                <img src="https://e7.pngegg.com/pngimages/848/507/png-clipart-logo-brand-payment-product-design-paypal-text-payment.png" height="26">
+                            </p>                            -->
+                    </div> <!-- card-body.// -->
+                </form>  <!-- card .// -->
+            </aside> <!-- col.// -->
+        </div>
+        
+        </div> <!-- container .//  -->
+    </section>
+</div>
+<app-footer></app-footer>

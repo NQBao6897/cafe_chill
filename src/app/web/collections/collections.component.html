@@ -1,0 +1,62 @@
+<app-navbar [gioHang]=gioHang ></app-navbar>
+<!-- <nz-affix [nzOffsetTop]="169">
+    <div class="combobox-mobie col-12">
+        <nz-select class="" nzShowSearch nzAllowClear nzPlaceHolder="Select a person" >
+            <nz-option *ngFor="let lsp of mucLucLooaiSP ;"  nzLabel="{{lsp.tenloaisanpham}}" routerLink="/collections/{{lsp.id}}"  nzValue=""></nz-option>
+    
+        </nz-select>
+    </div>
+</nz-affix > -->
+<section class="section">
+    <div class="container">
+      
+        <div class="container-col">
+          
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 container-col-menu">
+                <ul class="mobile-sub-menu">
+                    <mat-expansion-panel
+                    hideToggle
+                    disabled
+                    >
+                        <mat-expansion-panel-header>
+                                <li>
+                                    <a routerLink="/collections" href="" class="active"> Tất cả</a>
+                                </li>
+
+                        </mat-expansion-panel-header>
+                    </mat-expansion-panel>
+                    <mat-accordion>
+                    <ng-container class="offcanvas-menu-expand" *ngFor="let ml of mucLuc ;" >
+                            <mat-expansion-panel 
+                            hideToggle 
+                            >
+                                <!-- #enddocregion hide-toggle -->
+                                    <mat-expansion-panel-header>
+                                      <mat-panel-title
+                                      >
+                                        <li  class="has-dropdown">     
+                                            <a  (click)="gotoTop()" routerLink="/collections/{{ml.tenMucLuc}}" class="active">{{ml.tenMucLuc}}</a>
+                                        </li>
+                                      </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul class="container-col-menu-lv2 " *ngFor="let lsp of ml.id">
+                                        <li class="container-col-menu-lv2-li"> 
+                                            <a class="container-col-menu-lv2-text"  (click)="gotoTop()" routerLink="/collections/{{lsp.id}}"> {{lsp.tenloaisanpham}}</a>
+                                        </li>
+                                    </ul>
+                                  </mat-expansion-panel>
+                    </ng-container>
+                </mat-accordion>
+                </ul>
+            </div>
+            <div class="col-12 col-md-9  container-col-product">
+                <ul>
+                    <li>
+                        <app-collections-container (arrChange)="cart($event)"></app-collections-container>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

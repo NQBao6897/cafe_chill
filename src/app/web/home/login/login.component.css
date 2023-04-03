@@ -1,0 +1,336 @@
+/* login Tài khoảng */
+/* .bg-login {
+    content: "";
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+} */
+.login {
+  display: flex;
+  align-items: center;
+  background-color: #fff4d3;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.icon-input i {
+  padding-right: 10px;
+}
+
+.background-login img {
+  height: 100%;
+  width: 100%;
+
+}
+.banner-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  /* background-color: #ffc870; */
+  border-radius: 10px 0 0 10px;
+}
+.banner-login img {
+  height: 100%;
+  width: 100%;
+}
+
+.bg-login-banner {
+  width: auto;
+  height: auto;
+  background: linear-gradient(to right, #ffc76f, #ffe589, #ffc76f);
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bg-login-banner-text {
+  padding: 5px 0 0 10px;
+  margin: 0;
+  color: #6d6d6d;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: cursive;
+}
+
+.bg-login-banner-exit {
+  display: inline-block;
+  margin: 0px 0px 0px 28.7rem;
+  position: fixed;
+}
+
+.bg-login-banner-exit button {
+  border: none;
+  background-color: unset;
+}
+
+.bg-login-banner-exit button:focus {
+  outline: none;
+}
+
+.bg-login-banner-exit .fa-close {
+  font-size: 35px;
+}
+
+.bg-login-banner-exit .fa-close:hover {
+  color: red;
+}
+
+.bg-login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 35px;
+  height: 650px;
+  width: 500px;
+  justify-content: space-around;
+  padding-top: 110px;
+}
+
+.bg-login-content-login {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.bg-login-content-sinup {
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.bg-login-container {
+  margin-top: 20px;
+
+}
+
+.bg-login-container-tk {
+  display: flex;
+}
+
+.bg-login-container-pass {
+  display: flex;
+}
+
+.bg-login-container-login {
+  text-align: center;
+}
+
+.bg-login-container-login button {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background-color: #408bfa;
+  color: white;
+}
+
+.bg-login-container-login button:hover {
+  background-color: #1f79fd;
+  color: white;
+  border-color: #000;
+}
+
+.box-login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* input */
+.example-container mat-form-field+mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+  position: relative;
+  margin-bottom: 35px;
+  height: 50px;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #408bfa;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label, input:valid~label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus~.bar:before, input:focus~.bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus~.highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+/* Thông báo errors Login */
+.invalid-feedback {
+  font-size: 13px;
+
+}
+
+.form-control.is-invalid:focus {
+  box-shadow: none;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
+}
+
+/* Banner logo login */
+.animate-logo{
+  padding-top: 110px;
+}
+.animate-logo img {
+  height: 110px;
+}
+
+/* Responsive */
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 496px) {
+  .banner-login {
+    display: none;
+  }
+
+  .bg-login-banner {
+    margin: 15px;
+  }
+
+  .bg-login-content {
+    height: 350px;
+  }
+}

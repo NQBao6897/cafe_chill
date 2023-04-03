@@ -1,0 +1,293 @@
+
+<section class="top-bar">
+    <div class="container">
+                <!-- <div class="header-meta-list col-12">
+                    <div class="header-meta-list-item">
+                        <a href="">
+                            <img src="https://file.hstatic.net/1000075078/file/vector_706a88566eab4f009bed6eea93cd890b.png
+                            " alt="">
+                        </a>
+                        <span>101 Cửa hàng khắp cả nước</span>
+                    </div>
+                    <div class="header-meta-list-item">
+                        <a href="">
+                            <img src="https://file.hstatic.net/1000075078/file/group_8de276faa50c486b9d485826c506803b.png" alt="">
+                        </a>
+                        <span>Đặt hàng: 096150994</span>
+                    </div>
+                    <div class="header-meta-list-item">
+                        <a href="">
+                            <img src="https://file.hstatic.net/1000075078/file/vector_c337310f409d440f890b370ff9cefe44.png" alt="">
+                        </a>
+                        <span>Freeship từ 5 đơn trở lên</span>
+                    </div>
+                </div> -->
+    </div>
+</section>
+
+    <header class="background">
+        <div class="background-color">      
+        <section class="container"> 
+                <div class="toolbar row" role="banner " >
+                        <div class="logo col-12 col-md-4">
+                            <div  class="logo-img">
+                           
+                               <img routerLink="/Web-home" height="90" width="220" src="./img/Logochillcafe.png" alt="">
+                            </div>
+                            <a (click)="openMenu()" class="showmenu-mobile">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                            <div class=" drawer-mobie ">
+                                <nz-drawer             
+                                [nzVisible]="visible"
+                                [nzPlacement]="placement"
+                                (nzOnClose)="close()"
+                                [nzClosable]="true"
+                                [nzWidth]="250"
+                                >
+                                <ng-container *nzDrawerContent>
+                                    <div  *ngIf="setLogin" class="login-mobie box-logIn">
+                                        <i class="fa fa-user"></i>
+                                        <!-- <a (click)="open()" >  Đăng nhập</a>    -->
+                                        <a routerLink="/dang-nhap">  Đăng nhập</a>   
+                                    </div>
+                                    <div class="toolbar-tk show-text-tk" >
+                                        <mat-expansion-panel *ngIf="setUser">
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <div *ngFor="let tk of taikhoan" class="toolbar-tk-text" > 
+                                                        <nz-avatar nzIcon="user" nzSrc="{{tk.avatar}}"></nz-avatar>
+                                                        <p>{{tk.lname}}</p>
+                                                      
+                                                    </div>
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                          
+                                                    <ul class="toolbar-tk-row-mobie">
+                                                        <!-- <li>     
+                                                            <div class="nav-manager  form-maneger" > 
+                                                            <a>Thông tin tài khoản</a>
+                                                            </div>
+                                                        </li> -->
+                                                        <li *ngIf="setPhanQuyen">     
+                                                            <div class="nav-manager  form-maneger" > 
+                                                            <a routerLink="/manager">Quản lý</a>
+                                                            </div>
+                                                        </li>
+                                                        <li>     
+                                                            <div class="nav-manager  form-maneger" > 
+                                                            <a (click)="checkInCart()">Giỏ hàng</a>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="nav-manager  form-maneger " (click)="LogOut()" > 
+                                                                <a routerLink="/san-pham-yeu-thich">Sản phẩm yêu thích</a>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="nav-manager  form-maneger " (click)="LogOut()" > 
+                                                                    <a href="">Đăng xuất</a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>                  
+                                        </mat-expansion-panel>
+                                    </div>
+                                        <div class=" main-nav-mobie">
+                                <nav>
+                                    <ul class="nav--bar">
+                                        <li class="nav--bar-col"><a href="">Về chúng tôi</a></li>                          
+                                        <li class="dropdown nav--bar-col">
+                                            <mat-expansion-panel >
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>
+                                                        <a routerLink="/collections" class="test">
+                                                            Menu
+                                                        </a> 
+                                                    </mat-panel-title> 
+                                                </mat-expansion-panel-header>
+                                            
+                                            <div class="dropdown-content-mobie">
+                                             <ul >
+                                                <li class="dropdown-content-col-mobie"> 
+                                                    <a class="dropdown_content-text-mobie" routerLink="/collections" style="padding: 7px 0;">Tất cả</a>
+                                                </li>
+                                                <li  *ngFor="let ml of menu " class="dropdown-content-col-mobie">
+                                                    <a (click)="gotoTop()" routerLink="/collections/{{ml.tenMucLuc}}" class="dropdown_content-text-mobie" >{{ml.tenMucLuc}}</a>
+                                                    <div class="dropdown-content-container-mobie">
+                                                        <ul >
+                                                            <div *ngFor="let lsp of ml.id " >
+                                                                <li  class="dropdown-content-container-text-mobie">
+                                                                    <a (click)="gotoTop()"  routerLink="/collections/{{lsp.id}}">{{lsp.tenloaisanpham}}</a>
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                 </li>             
+                                               
+                                             </ul>
+                                            </div>    
+                                        </mat-expansion-panel>
+                                        </li>
+                                        <!-- <li class="nav--bar-col"><a href="">Tuyển dụng</a></li>              -->
+                                        <li  class="nav--bar-col">
+                                            <a routerLink="/lienhe" >Liên hệ</a>
+                                        </li>  
+                                        <li class="nav--bar-col"><a routerLink="/news" >Tin tức</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                                </ng-container>
+                            </nz-drawer>
+                            </div>
+                        
+                        </div>
+                    <div class="toolbar--banner col-12 col-md-4">
+                        <div class="toolbar--banner--nav">
+                            <div class="nav--search">
+                                <form class="nav--search-input" (ngSubmit)="resetForm(searchBox)">
+                                    <input type="text" alt="Tìm sản phẩm..." name="search"  placeholder="Tìm sản phẩm..." class="search--live" #searchBox (input)="search(searchBox.value)" >
+                                    <!-- <div class="loader" *ngIf="loading">
+                                        <div class="c-three-dots-loader"></div>
+                                      </div> -->
+                                      <!-- <button style="height: 20px;
+                                      width: 20px;
+                                      background-color: red;"></button> -->
+                                      <div class="list-group" style="position: absolute;">
+                                          <div
+                                            class="list-group-item list-group-item-action"
+                                            *ngFor="let country of countries$ | async"
+                                          >
+                                            <div  (click)="gotoTop()" routerLink="/chi-tiet-san-pham/{{country.id}}" class="d-flex p-2 bd-highlight">
+                                              <img class="seach-img" height="60" width="60" src="{{ country.photo }}" alt="..." />
+                                              <p class="ms-3">{{ country.sanpham }}</p>
+                                              <p style="color: red;" class="ms-3">{{(country.gia - (country.gia * country.giamgia)/100) | number}} VND</p>
+                                            </div>
+                                          </div>
+                                      </div>
+                                </form>
+                            </div>
+                            <div class="cart-mobie">
+                                <nz-badge 
+                                [nzOverflowCount]="99"
+                                [nzCount]="sum">
+                                <i  (click)="checkInCart()" class="fa fa-shopping-cart nav--buy-icon "></i>
+                            </nz-badge>
+                            </div>
+                        
+                     
+                            <!-- <div class="nav--search-icon ">
+                                <i class="fa fa-search  "> </i>
+                            </div> -->
+                        </div>
+                        <div class=" main-nav ">
+                            <nav >
+                                <ul class="nav--bar" >
+                                    <li class="nav--bar-col"><a href="">Về chúng tôi</a></li>                          
+                                    <li class="dropdown nav--bar-col">
+                                        <a routerLink="/collections" class="test">
+                                            Menu
+                                            <i class="fa fa-chevron-down"></i>
+                                        </a> 
+                                        <div class="dropdown-content">
+                                         <ul >
+                                            <li  *ngFor="let ml of menu " class="dropdown-content-col">
+                                                <a (click)="gotoTop()"  routerLink="/collections/{{ml.tenMucLuc}}" class="dropdown_content-text" >{{ml.tenMucLuc}}</a>
+                                                <div class="dropdown-content-container">
+                                                    <ul >
+                                                        <div *ngFor="let lsp of ml.id " >
+                                                            <li  class="dropdown-content-container-text">
+                                                                <a (click)="gotoTop()"  routerLink="/collections/{{lsp.id}}">{{lsp.tenloaisanpham}}</a>
+                                                            </li>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                             </li>             
+                                           
+                                         </ul>
+                                        </div>      
+                                    <!-- <li class="nav--bar-col"><a href="">Tuyển dụng</a></li>              -->
+                                    <li  class="nav--bar-col">
+                                        <a routerLink="/lienhe" >Liên hệ</a>
+                                    </li>  
+                                    <li class="nav--bar-col"><a routerLink="/news" >Tin tức</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                        <div class="toolbar--nar col-md-4"> 
+                            <div class="nav--login">
+                                <div class="nav--buy">
+                                    <nz-badge 
+                                    [nzOverflowCount]="99"
+                                    [nzCount]="sum">
+                                        <i  (click)="checkInCart()" class="fa fa-shopping-cart nav--buy-icon "></i>
+                                    </nz-badge>
+                                    <div class="cart">
+                                        <ul  class="cart-list">
+                                            
+                                            <li *ngFor="let gh of gioHang; let i = index" >
+                                                <a routerLink="/chi-tiet-san-pham/{{gh.idSanPham.id}}" class="cart-list-item">
+                                                    <img class="col-5" src="{{gh.idSanPham.photo}}" alt="">
+                                                    <p style=" min-width: 130px;  max-width: 130px;" class="col-4">{{gh.idSanPham.sanpham}}</p>
+                                                    <p class="col-1">{{gh.SoLuong}}</p>
+                                                    <p class="col-2">{{gh.idSanPham.gia | number }} VND</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul  class="cart-see">
+                                            <li class="cart-see-item">
+                                                <p >Có {{sum}} sản phẩm thêm vào giỏ hàng</p>
+                                                <a (click)="checkInCart()" >Xem giỏ hàng</a>                             
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span class="nav--login-wall"></span>
+                                <div>
+                                    <div *ngIf="setLogin"  class="nav--tk  nav--tk-bt box-logIn">
+                                        <!-- <button href="#" (click)="open()" >Đăng Nhập</button>         -->
+                                        <button href="#" routerLink="/dang-nhap">Đăng Nhập</button>        
+                                    </div>
+                                    <div *ngIf="setUser" class="toolbar-tk show-text-tk" >
+                                        <div *ngFor="let tk of taikhoan" class="toolbar-tk-text" > 
+                                            <nz-avatar nzIcon="user" nzSrc="{{tk.avatar}}"></nz-avatar>
+                                            <p>{{tk.lname}}</p>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </div>
+                                                <ul class="toolbar-tk-row">
+                                                    <!-- <li>     
+                                                        <div class="nav-manager  form-maneger" > 
+                                                        <a>Thông tin tài khoản</a>
+                                                        </div>
+                                                    </li> -->
+                                                    <li *ngIf="setPhanQuyen">     
+                                                        <div class="nav-manager  form-maneger" > 
+                                                        <a routerLink="/manager">Quản lý</a>
+                                                        </div>
+                                                    </li>
+                                                    <li>     
+                                                        <div class="nav-manager  form-maneger" > 
+                                                        <a (click)="checkInCart()">Giỏ hàng</a>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nav-manager  form-maneger "  > 
+                                                            <a routerLink="/san-pham-yeu-thich">Sản phẩm yêu thích</a>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="nav-manager  form-maneger " (click)="LogOut()" > 
+                                                                <a href="">Đăng xuất</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>                  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        </header>
