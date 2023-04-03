@@ -262,24 +262,24 @@
                                                         <a>Thông tin tài khoản</a>
                                                         </div>
                                                     </li> -->
-                                                    <li *ngIf="setPhanQuyen">     
+                                                    <li *ngIf="setPhanQuyen" routerLink="/manager" style="cursor: pointer;">     
                                                         <div class="nav-manager  form-maneger" > 
-                                                        <a routerLink="/manager">Quản lý</a>
+                                                        <a >Quản lý</a>
                                                         </div>
                                                     </li>
-                                                    <li>     
+                                                    <li (click)="checkInCart()" style="cursor: pointer;">     
                                                         <div class="nav-manager  form-maneger" > 
-                                                        <a (click)="checkInCart()">Giỏ hàng</a>
+                                                        <a >Giỏ hàng</a>
                                                         </div>
                                                     </li>
-                                                    <li>
+                                                    <li  routerLink="/san-pham-yeu-thich" style="cursor: pointer;">
                                                         <div class="nav-manager  form-maneger "  > 
-                                                            <a routerLink="/san-pham-yeu-thich">Sản phẩm yêu thích</a>
+                                                            <a>Sản phẩm yêu thích</a>
                                                         </div>
                                                     </li>
-                                                    <li>
-                                                        <div class="nav-manager  form-maneger " (click)="LogOut()" > 
-                                                                <a href="">Đăng xuất</a>
+                                                    <li href="" (click)="LogOut()" style="cursor: pointer;">
+                                                        <div class="nav-manager  form-maneger "  > 
+                                                                <a >Đăng xuất</a>
                                                         </div>
                                                     </li>
                                                 </ul>                  
