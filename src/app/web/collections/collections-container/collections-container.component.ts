@@ -26,6 +26,7 @@ export class CollectionsContainerComponent implements OnChanges {
   token = '';
   user: any;
   cartNumber = 0;
+  sale:any;
   constructor(
     private service: DuLieuService,
     private m: DuLieuService,
